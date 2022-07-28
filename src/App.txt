@@ -1,0 +1,78 @@
+THIS IS THE CLASS BASED CODE (I'm trying to change the old code 
+so that it uses function because I can't use useEffect with class)
+
+import React from 'react';
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import './App.css';
+import logo from './assets/kbean-logo.png';
+import { useEffect, useState } from "react";
+import { connectWallet, getCurrentWalletConnected } from "./utils/interact.js";
+class App extends React.Component {
+  state = {
+    walletAddress: '',
+    status: '',
+    name: '',
+    connectButtonText: 'Connect to Metamask'
+  };
+
+  useEffect = (async () => {
+    console.log('useEffect ran');
+    const {address, status} = await getCurrentWalletConnected();
+    this.setState({status: status});
+    this.setState({walletAdress: address});
+  }, []);
+
+  connectWalletPressed = async () => {
+    console.log('connect button clicked')
+    const walletResponse = await connectWallet();
+    this.setState({status: walletResponse.status});
+    this.setState({walletAdress: walletResponse.address});
+    console.log(this.state.walletAddress);
+  };
+
+
+  render() {
+    // if (this.state.walletAddress.length > 0){
+    //   this.setState({connectButtonText: 'Connected!'});
+    // }
+    // console.log(this.state.walletAddress);
+
+    return (
+      <div className="App">
+        <div className='head-section'>
+          <h2>Web3 Project!</h2>
+        </div>
+        <header className="App-header">
+          <div className='row'>
+            <div className='col-lg-6'>
+              <button type='button' className='btn btn-lg btn-outline-light' onClick={this.connectWalletPressed}>
+                {this.state.walletAddress.length > 0 ? (
+                  "Connected: " +
+                  String(this.state.walletAddress).substring(0, 6) +
+                  "..." +
+                  String(this.state.walletAddress).substring(38)
+                  ) : (
+                  <span>Connect Wallet</span>
+                )}
+              </button>
+            </div>
+            <div className='col-lg-6'>
+              <button type='button' className='btn btn-lg btn-outline-light'>Read</button>
+            </div>
+          </div>
+          <p>
+            This is a rough draft.
+          </p>
+        </header>
+        <div className='logo-section'>
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;

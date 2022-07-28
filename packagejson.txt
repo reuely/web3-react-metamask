@@ -1,0 +1,10 @@
+
+DELETED THIS from package.json file
+It was right under scripts and above browserslist
+
+"eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
