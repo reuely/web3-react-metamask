@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/web3-react-metamask.git/static/css/main.e17d89cf.chunk.css",
+    "main.js": "/web3-react-metamask.git/static/js/main.672a5f5e.chunk.js",
+    "main.js.map": "/web3-react-metamask.git/static/js/main.672a5f5e.chunk.js.map",
+    "runtime-main.js": "/web3-react-metamask.git/static/js/runtime-main.9f07fac7.js",
+    "runtime-main.js.map": "/web3-react-metamask.git/static/js/runtime-main.9f07fac7.js.map",
+    "static/css/2.984f751f.chunk.css": "/web3-react-metamask.git/static/css/2.984f751f.chunk.css",
+    "static/js/2.8f5fa63f.chunk.js": "/web3-react-metamask.git/static/js/2.8f5fa63f.chunk.js",
+    "static/js/2.8f5fa63f.chunk.js.map": "/web3-react-metamask.git/static/js/2.8f5fa63f.chunk.js.map",
+    "static/js/3.af646cfd.chunk.js": "/web3-react-metamask.git/static/js/3.af646cfd.chunk.js",
+    "static/js/3.af646cfd.chunk.js.map": "/web3-react-metamask.git/static/js/3.af646cfd.chunk.js.map",
+    "index.html": "/web3-react-metamask.git/index.html",
+    "static/css/2.984f751f.chunk.css.map": "/web3-react-metamask.git/static/css/2.984f751f.chunk.css.map",
+    "static/css/main.e17d89cf.chunk.css.map": "/web3-react-metamask.git/static/css/main.e17d89cf.chunk.css.map",
+    "static/js/2.8f5fa63f.chunk.js.LICENSE.txt": "/web3-react-metamask.git/static/js/2.8f5fa63f.chunk.js.LICENSE.txt",
+    "static/media/kbean-logo.8a6d08e7.png": "/web3-react-metamask.git/static/media/kbean-logo.8a6d08e7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9f07fac7.js",
+    "static/css/2.984f751f.chunk.css",
+    "static/js/2.8f5fa63f.chunk.js",
+    "static/css/main.e17d89cf.chunk.css",
+    "static/js/main.672a5f5e.chunk.js"
+  ]
+}
