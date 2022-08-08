@@ -53,7 +53,7 @@ function App() {
   };
 
   //Connects to deeplink Metamask mobile app
-  const mobilePressed = async() => {
+  function mobilePressed() {
     const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
     window.location.replace(url);
   };
