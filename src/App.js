@@ -32,7 +32,7 @@ function App() {
   //Prompts the users to connect Metamask to the website
   const connectWalletPressed = async () => {
     if (!window.ethereum) { //this conditional is not working actually check if the user is logged into metamask
-      alert('Log into your Metamask first!');
+      alert('Install Metamask extension first!');
     } else {
         const walletResponse = await connectWallet();
         // add a code that alerts user if they reject to connect
@@ -50,6 +50,12 @@ function App() {
       const walletBalance = await web3.eth.getBalance(walletAddress);
       setBalance(web3.utils.fromWei(walletBalance, "ether") + " ETH");
     }
+  };
+
+  //Connects to deeplink Metamask mobile app
+  const mobilePressed = async() => {
+    const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
+    window.location.replace(url);
   };
 
 
@@ -81,6 +87,11 @@ function App() {
               Read
             </button>
             <p>{userBalance}</p>
+          </div>
+          <div className='col-lg-6'>
+            <button type='button' className='btn btn-lg btn-outline-light' onClick={mobilePressed}>
+              Connect with mobile Metamask app
+            </button>
           </div>
         </div>
       <p>
