@@ -57,10 +57,27 @@ function App() {
 
   //Connects to deeplink Metamask mobile app
   function mobilePressed() {
-    //const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
-    const url = "dapp://reuely.github.io/web3-react-metamask/";
-    window.location.replace(url);
+    if (deviceType() == 'desktop') {
+      alert('This button is for mobile uses only!');
+    } else {
+      //const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
+      const url = "dapp://reuely.github.io/web3-react-metamask/";
+      window.location.replace(url);
+    }
   };
+
+  //Checks what device user is on
+  //source: https://attacomsian.com/blog/javascript-detect-mobile-device
+  const deviceType = () => {
+    const ua = navigator.userAgent;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+        return "tablet";
+    }
+    else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+        return "mobile";
+    }
+    return "desktop";
+};
 
 
   return (
@@ -96,6 +113,7 @@ function App() {
             <button type='button' className='btn btn-lg btn-outline-light' onClick={mobilePressed}>
               Connect with mobile Metamask app
             </button>
+            <p className="mobile-message">Click this if you're on your phone and have Metamask app installed!</p>
           </div>
         </div>
       <p>
