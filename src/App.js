@@ -60,8 +60,8 @@ function App() {
     if (deviceType() == 'desktop') {
       alert('This button is for mobile uses only!');
     } else {
-      //const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
-      const url = "dapp://reuely.github.io/web3-react-metamask/";
+      const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
+      //const url = "dapp://reuely.github.io/web3-react-metamask/";
       window.location.replace(url);
     }
   };
