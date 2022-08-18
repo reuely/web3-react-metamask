@@ -65,7 +65,7 @@ function App() {
         alert('Use "Connect Wallet" button instead! If the button says "Connected to Metamask!", then you are already connected!');
       } else {
         const url = "dapp://reuely.github.io/web3-react-metamask/";
-        if (window.location.href = url) {
+        if (!window.location.replace(url)) {
           alert('app store options!'); //debug
           if (getMobileOperatingSystem() == 'Android') {
             alert('got into android store'); //debug
