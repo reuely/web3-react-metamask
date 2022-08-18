@@ -60,9 +60,14 @@ function App() {
     if (deviceType() == 'desktop') {
       alert('This button is for mobile uses only!');
     } else {
-      const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
-      //const url = "dapp://reuely.github.io/web3-react-metamask/";
-      window.location.replace(url);
+      if (window.ethereum) {
+        alert('Use "Connect to Metamask!" button instead');
+      } else {
+        // this bottom Metamask-generated deeplink doesn't work
+        //const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
+        const url = "dapp://reuely.github.io/web3-react-metamask/";
+        window.location.replace(url);
+      }
     }
   };
 
