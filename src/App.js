@@ -10,6 +10,7 @@ import logo from './assets/kbean-logo.png';
 import { useEffect, useState } from "react";
 import web3 from "./web3";
 import { connectWallet, getCurrentWalletConnected } from "./utils/interact.js";
+import { isValidUrl, deviceType, getMobileOperatingSystem } from "./utils/mobile-button.js";
 
 
 function App() {
@@ -60,29 +61,24 @@ function App() {
     if (deviceType() == 'desktop') {
       alert('This button is for mobile uses only!');
     } else {
-      if (window.ethereum) {
+      if (window.ethereum) { //when users are trying to click this button when they're already inside MM app
         alert('Use "Connect Wallet" button instead! If the button says "Connected to Metamask!", then you are already connected!');
       } else {
-        // this bottom Metamask-generated deeplink doesn't work
-        //const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
         const url = "dapp://reuely.github.io/web3-react-metamask/";
-        window.location.replace(url);
+        if (isValidUrl == false) {
+          if (getMobileOperatingSystem() == 'Android') {
+            window.location.href = 'https://metamask.app.link/bxwkE8oF99';
+          } else if (getMobileOperatingSystem() == 'iOS') {
+            window.location.href = 'https://metamask.app.link/skAH3BaF99';
+          } else {
+            alert('Sorry, Metamask is only supported on Android and iOS.');
+          }
+        } else {
+          window.location.replace(url);
+        }
       }
     }
   };
-
-  //Checks what device user is on
-  //source: https://attacomsian.com/blog/javascript-detect-mobile-device
-  const deviceType = () => {
-    const ua = navigator.userAgent;
-    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-        return "tablet";
-    }
-    else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
-        return "mobile";
-    }
-    return "desktop";
-};
 
 
   return (
