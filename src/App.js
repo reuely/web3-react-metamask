@@ -66,14 +66,18 @@ function App() {
       } else {
         const url = "dapp://reuely.github.io/web3-react-metamask/";
         if (isValidUrl == false) {
+          alert('isValidUrl returned false!'); //debug
           if (getMobileOperatingSystem() == 'Android') {
+            alert('got into android store'); ; //debug
             window.location.href = 'https://metamask.app.link/bxwkE8oF99';
           } else if (getMobileOperatingSystem() == 'iOS') {
+            alert('got into app store'); ; //debug
             window.location.href = 'https://metamask.app.link/skAH3BaF99';
           } else {
             alert('Sorry, Metamask is only supported on Android and iOS.');
           }
         } else {
+          alert('bruh this should not be'); //debug
           window.location.replace(url);
         }
       }
