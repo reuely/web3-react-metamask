@@ -118,7 +118,6 @@ function App() {
             <button type='button' className='btn btn-lg btn-outline-light' onClick={mobilePressed}>
               Connect with mobile Metamask app
             </button>
-            <p className="mobile-message">Click this if you're on your phone and have Metamask app installed!</p>
           </div>
         </div>
       <p>
