@@ -1,13 +1,4 @@
 
-export const isValidUrl = urlString=> {
-    try { 
-        return Boolean(new URL(urlString)); 
-    }
-    catch(e){ 
-        return false; 
-    }
-};
-
 //Checks what device user is on
 //source: https://attacomsian.com/blog/javascript-detect-mobile-device
 export const deviceType = () => {

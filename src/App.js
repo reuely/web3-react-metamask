@@ -10,7 +10,7 @@ import logo from './assets/kbean-logo.png';
 import { useEffect, useState } from "react";
 import web3 from "./web3";
 import { connectWallet, getCurrentWalletConnected } from "./utils/interact.js";
-import { isValidUrl, deviceType, getMobileOperatingSystem } from "./utils/mobile-button.js";
+import { deviceType, getMobileOperatingSystem } from "./utils/mobile-button.js";
 
 
 function App() {
@@ -65,21 +65,36 @@ function App() {
         alert('Use "Connect Wallet" button instead! If the button says "Connected to Metamask!", then you are already connected!');
       } else {
         const url = "dapp://reuely.github.io/web3-react-metamask/";
-        if (isValidUrl(url) == false) {
-          alert('isValidUrl returned false!'); //debug
+        try {
+          window.location.href = url;
+        } catch (err) {
+          alert('app store options!'); //debug
           if (getMobileOperatingSystem() == 'Android') {
-            alert('got into android store'); ; //debug
+            alert('got into android store'); //debug
             window.location.href = 'https://metamask.app.link/bxwkE8oF99';
           } else if (getMobileOperatingSystem() == 'iOS') {
-            alert('got into app store'); ; //debug
+            alert('got into app store'); //debug
             window.location.href = 'https://metamask.app.link/skAH3BaF99';
           } else {
             alert('Sorry, Metamask is only supported on Android and iOS.');
           }
-        } else {
-          alert('bruh this should not be'); //debug
-          window.location.replace(url);
         }
+        // if () {
+        //   alert('app store options!'); //debug
+        //   if (getMobileOperatingSystem() == 'Android') {
+        //     alert('got into android store'); //debug
+        //     window.location.href = 'https://metamask.app.link/bxwkE8oF99';
+        //   } else if (getMobileOperatingSystem() == 'iOS') {
+        //     alert('got into app store'); //debug
+        //     window.location.href = 'https://metamask.app.link/skAH3BaF99';
+        //   } else {
+        //     alert('Sorry, Metamask is only supported on Android and iOS.');
+        //   }
+        // } else {
+        //   alert('bruh this should not be'); //debug
+        //   //window.location.replace(url);
+        //   window.location.href = url;
+        // }
       }
     }
   };
