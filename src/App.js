@@ -61,7 +61,7 @@ function App() {
       alert('This button is for mobile uses only!');
     } else {
       if (window.ethereum) {
-        alert('Use "Connect to Metamask!" button instead');
+        alert('Use "Connect Wallet" button instead! If the button says "Connected to Metamask!", then you are already connected!');
       } else {
         // this bottom Metamask-generated deeplink doesn't work
         //const url = "https://metamask.app.link/dapp/reuely.github.io/web3-react-metamask/";
